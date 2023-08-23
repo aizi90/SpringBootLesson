@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Main Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <style>
+        .container{
+            display: flex;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<div class="container" style="width: 80%; margin: 0 auto">
+    <div class="card" style="width: 18rem;"
+         th:each="hospital:${allHospitals}">
+        <img th:src="${hospital.getImage()}" class="card-img-top" alt="Hospital Image">
+        <div class="card-body">
+            <h5 class="card-title" th:text="${hospital.getName()}">Hospital</h5>
+            <p class="card-text" th:text="${hospital.getCountry()}">Country</p>
+
+
+
+
+            <body>
+
+</body>
+
+
+
+
+            <!DOCTYPE html>
+            <html lang="en" xmlns:th="http://www.thymeleaf.org">
+            <head>
+                <meta charset="UTF-8">
+                <title>Hospitals</title>
+                <style>
+                    .container {
+                        width: 100%;
+                        margin: 0 auto;
+                        display: flex;
+                        flex-wrap: wrap;
+                    }
+                </style>
+                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+                      rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+                      crossorigin="anonymous">
+
+                <div style="text-align:center">
+                    <form th:action=" @{/hospitals}" method="get"
+                          style="display:flex; gap: 10px;  justify-content: space-around;width: 800px; margin: 40px 0 40px 250px;  align-items: center">
+                        <input style="width: 250px" type="text" name="word" placeholder="Search ..." th:value="${word}"/>
+                        <input type="date" name="fromDate" th:value="${fromDate}"/>
+                        <input type="date" name="beforeDate" th:value="${beforeDate}"/>
+                        <button type="submit">Search</button>
+                        <button type="submit">Clear</button>
+                    </form>
+
+
+                </div>
+
+            </head>
+            <body>
+
+
+            <div class="container" style="width: 90%; margin: 0 auto; display: flex; gap: 15px">
+
+                <div class="card" style="width: 18rem;" th:each="hospital:${findAllHospital}">
+                    <a th:href="@{/hospitals/{hospitalId}/categoryPage(hospitalId=${hospital.getId()})}">
+                        <img th:src="${hospital.getImage()}" object-fit width="223" height="170px" class="card-img-top"
+                             alt="Company's Image">
+                        <!--      <img th:each="image : ${hospital.images}" th:src="${image}" object-fit width="223" height="170px" class="card-img-top" alt="Company's Image">-->
+
+                    </a>
+
+                    <div class="card-body">
+                        <h5 class="card-title" style="text-align: center" th:text="${hospital.name}">Hospital</h5>
+                        <p class="card-text" style="text-align: center" th:text="${hospital.address}">Address</p>
+                        <div style="display:flex;justify-content: space-between">
+                            <a th:href="@{/hospitals/update/{hospitalId}(hospitalId=${hospital.id})}">
+                                <button style="width: 125px" class="btn btn-primary" type="submit">EDIT</button>
+                            </a>
+                            <a th:href="@{/hospitals/delete/{hospitalId}(hospitalId=${hospital.id})}">
+                                <button style="width: 125px" class="btn btn-danger" type="submit">DELETE</button>
+                            </a>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+            <br>
+            <br>
+            <p style="text-align:center;">
+                <a class="btn btn-outline-primary" role="button" href="/hospitals/create">Add new hospital</a></p>
+
+
+            </body>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+                    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+                    crossorigin="anonymous"></script>
+            </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+        </html>
